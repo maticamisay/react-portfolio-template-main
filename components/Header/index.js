@@ -6,15 +6,6 @@ import Button from "../Button";
 // Local Data
 import yourDataEn from "../../data/portfolio.json";
 import yourDataEs from "../../data/portfolioEs.json";
-import Link from "next/link";
-// import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
-// export const getStaticProps = async ({ locale }) => ({
-//   props: {
-//     locale,
-//     ...await serverSideTranslations(locale, ['common']),
-//   },
-// })
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
@@ -26,10 +17,9 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       setData(yourDataEs)
       :
       setData(yourDataEn);
-    // setData({ ...data, language: props.locale })
   }, [router.locale])
   const { name, showBlog, language } = data;
-
+  console.log(theme);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -55,7 +45,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   >
                     <img
                       className="h-6"
-                      src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"
+                      src={`/images/${theme === "light" ? "sun.svg" : "moon.svg"
                         }`}
                     ></img>
                   </Button>
@@ -65,12 +55,12 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   <img
                     className="h-5"
                     src={`/images/${!open
-                      ? theme === "dark"
-                        ? "menu-white.svg"
-                        : "menu.svg"
-                      : theme === "light"
-                        ? "cancel.svg"
-                        : "cancel-white.svg"
+                      ? theme === "light"
+                        ? "menu.svg"
+                        : "menu-white.svg"
+                      : theme === "dark"
+                        ? "cancel-white.svg"
+                        : "cancel.svg"
                       }`}
                   ></img>
                 </Popover.Button>
@@ -92,6 +82,11 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   >
                     Contact
                   </Button>
+                  <Button onClick={() => {
+                    router.locale == 'es' ? router.push('/en', '/en', { locale: 'en' }) : router.push('/es', '/es', { locale: 'es' })
+                  }}>
+                    {language == 'es' ? 'Español' : 'English'}
+                  </Button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
@@ -105,6 +100,11 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     onClick={() => window.open("mailto:hello@chetanverma.com")}
                   >
                     Contact
+                  </Button>
+                  <Button onClick={() => {
+                    router.locale == 'es' ? router.push('/en', '/en', { locale: 'en' }) : router.push('/es', '/es', { locale: 'es' })
+                  }}>
+                    {language == 'es' ? 'Español' : 'English'}
                   </Button>
                 </div>
               )}
@@ -133,44 +133,43 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               Contact
             </Button>
             <Button onClick={() => {
-              router.locale == 'es' ? router.push('/en','/en',{locale:'en'}) : router.push('/es','/es',{locale:'es'})
-              
-              }}>
-            {language == 'es' ? 'Español' : 'English'}
-          </Button>
+              router.locale == 'es' ? router.push('/en', '/en', { locale: 'en' }) : router.push('/es', '/es', { locale: 'es' })
+            }}>
+              {language == 'es' ? 'Español' : 'English'}
+            </Button>
             {mounted && theme && data.darkMode && (
-          <Button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            <img
-              className="h-6"
-              src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-            ></img>
-          </Button>
+              <Button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                <img
+                  className="h-6"
+                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                ></img>
+              </Button>
+            )}
+          </div>
+        ) : (
+          <div className="flex">
+            <Button onClick={() => router.push("/")}>Home</Button>
+            {showBlog && (
+              <Button onClick={() => router.push("/blog")}>Blog</Button>
+            )}
+            <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
+              Contact
+            </Button>
+            {mounted && theme && data.darkMode && (
+              <Button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                <img
+                  className="h-6"
+                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                ></img>
+              </Button>
+            )}
+          </div>
         )}
       </div>
-      ) : (
-      <div className="flex">
-        <Button onClick={() => router.push("/")}>Home</Button>
-        {showBlog && (
-          <Button onClick={() => router.push("/blog")}>Blog</Button>
-        )}
-        <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
-          Contact
-        </Button>
-        {mounted && theme && data.darkMode && (
-          <Button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            <img
-              className="h-6"
-              src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-            ></img>
-          </Button>
-        )}
-      </div>
-        )}
-    </div>
     </>
   );
 };
