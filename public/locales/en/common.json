@@ -1,0 +1,74 @@
+{
+    "name": "Matias",
+    "headerTaglineOne": "Hello 👋",
+    "headerTaglineTwo": "I'm Matias Camisay",
+    "headerTaglineThree": "Fullstack web developer",
+    "headerTaglineFour": " Living in San Juan, Argentina.",
+    "showBlog": true,
+    "darkMode": true,
+    "socials": [
+        {
+            "id": "1",
+            "title": "Github",
+            "link": "https://github.com/maticamisay"
+        },
+        {
+            "id": "2",
+            "title": "LinkedIn",
+            "link": "https://www.linkedin.com/in/matias-camisay/"
+        },
+        {
+            "id": "5",
+            "title": "Email",
+            "link": "mailto:matiascamisay99@gmail.com"
+        }
+    ],
+    "projects": [
+        {
+            "id": "1",
+            "title": "Blog FullStack",
+            "description": "React - Express - MongoDB",
+            "imageSrc": "https://i.ibb.co/2Sgyxbm/Captura-de-pantalla-2022-08-26-162057.png",
+            "url": "https://secret-reaches-45719.herokuapp.com/"
+        },
+        {
+            "id": "2",
+            "title": "Ecommerce GuitarLA",
+            "description": "Next - Strapi - MongoDB",
+            "imageSrc": "https://maticamisay.vercel.app/static/media/guitar_la.e866e9c6b74cf5a3d93e.jpg",
+            "url": "https://guitarla-next-bay.vercel.app/"
+        },
+        {
+            "id": "3",
+            "title": "Space Tourism Web",
+            "description": "React - SASS",
+            "imageSrc": "https://i.ibb.co/JkKYh3j/space-tourism.png",
+            "url": "https://maticamisay.github.io/space-tourism-web/#/"
+        },
+        {
+            "id": "4",
+            "title": "Weather App - Api",
+            "description": "React",
+            "imageSrc": "https://maticamisay.vercel.app/static/media/clima_api.5eeee40ca37dc59fadab.jpg",
+            "url": "https://clima-app-silk.vercel.app/"
+        }
+    ],
+    "services": [
+        {
+            "id": "1",
+            "title": "Frontend",
+            "description": "Next Js - Gatsby Js - React Js - Angular - Typescript - Javascript - CSS - HTML."
+        },
+        {
+            "id": "2",
+            "title": "Backend",
+            "description": "Node Js - Express Js"
+        },
+        {
+            "id": "3",
+            "title": "DataBases",
+            "description": "We build and optimize your online presence.  Website is the digital entry point into your business and a powerful revenue channel."
+        }
+    ],
+    "aboutpara": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+}
